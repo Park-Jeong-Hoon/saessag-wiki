@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Park-Jeong-Hoon/saessag-wiki/issues"
   },
-  "homepage": "https://github.com/Park-Jeong-Hoon/saessag-wiki#readme"
+  "homepage": "https://github.com/Park-Jeong-Hoon/saessag-wiki#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
 }
