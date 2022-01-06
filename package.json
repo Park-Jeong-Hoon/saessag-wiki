@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Park-Jeong-Hoon/saessag-wiki#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
