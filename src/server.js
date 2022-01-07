@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import rootRouter from "./routers/rootRouter";
 
 const app = express();
 const logger = morgan("dev");
@@ -8,10 +9,6 @@ app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 
-const getHome = (req, res) => {
-    res.render("home");
-}
-
-app.get("/", getHome);
+app.use("/", rootRouter);
 
 app.listen(4000, () => {console.log("listen 4000 port")})
