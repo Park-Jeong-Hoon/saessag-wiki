@@ -1,5 +1,5 @@
 export const getHome = (req, res) => {
-    res.render("home");
+    res.render("home", {pageTitle: "home"});
 }
 
 export const getSearch = (req, res) => {
