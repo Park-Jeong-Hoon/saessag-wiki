@@ -3,7 +3,9 @@ header
     nav
         ul
             li
-                a(href="/search") 검색
+                form(action="/search" method="GET")
+                    input(type="text", name="keyword", placeholder="검색어를 입력하세요")
+                    input(type="submit", value="검색")
             li
                 a(href="/login") 로그인
             li
