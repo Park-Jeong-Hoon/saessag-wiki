@@ -1,9 +1,9 @@
 export const getJoin = (req, res) => {
-    res.send("Join")
+    res.render("join")
 }
 
 export const getLogin = (req, res) => {
-    res.send("Login");
+    res.render("login");
 }
 
 export const getLogout = (Req, res) => {

@@ -3,7 +3,7 @@ export const getHome = (req, res) => {
 }
 
 export const getSearch = (req, res) => {
-    res.send("Search");
+    res.render("search");
 }
 
 export const getSee = (req, res) => {
