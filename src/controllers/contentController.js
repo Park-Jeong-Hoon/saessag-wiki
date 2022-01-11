@@ -3,7 +3,9 @@ export const getHome = (req, res) => {
 }
 
 export const getSearch = (req, res) => {
-    res.render("search");
+    const keyword = req.query.keyword;
+    console.log(keyword);
+    res.render("search", { pageTitle: `searched ${keyword}`, keyword });
 }
 
 export const getSee = (req, res) => {
