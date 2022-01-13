@@ -1,3 +1,4 @@
+import "./db";
 import express from "express";
 import morgan from "morgan";
 import contentRouter from "./routers/contentRouter";
@@ -16,4 +17,4 @@ app.use("/", rootRouter);
 app.use("/contents", contentRouter);
 app.use("/users", userRouter);
 
-app.listen(4000, () => {console.log("listen 4000 port")})
+app.listen(4000, () => {console.log("✅ listen 4000 port")})
