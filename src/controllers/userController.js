@@ -5,13 +5,29 @@ export const getJoin = (req, res) => {
 }
 
 export const postJoin = async (req, res) => {
-    const {id, password, name} = req.body;
-    await User.create({
-        id,
-        password,
-        name
-    });
-    res.render("login");
+    const {id, password, password2, name} = req.body;
+    const pageTitle = "join";
+
+    if(password !== password2) {
+        return res.status(400).render("join", {
+            pageTitle,
+            errorMassage: "비밀번호 확인이 옳지 않습니다."
+        });
+    };
+    
+    try {
+        await User.create({
+            id,
+            password,
+            name
+        });
+    } catch(error) {
+        return res.status(400).render("join", {
+            pageTitle,
+            errorMassage: error._massage
+        });
+    };
+    return res.redirect("/login");
 }
 
 export const getLogin = (req, res) => {
