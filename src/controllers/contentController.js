@@ -13,7 +13,7 @@ export const getSee = (req, res) => {
 }
 
 export const getUpload = (req, res) => {
-    res.send("upload");
+    res.render("upload", {pageTitle: "upload"});
 }
 
 export const getEdit = (req, res) => {
