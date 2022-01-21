@@ -43,6 +43,11 @@ export const getLogin = (req, res) => {
     res.render("login");
 }
 
+export const postLogin = (req, res) => {
+    const { username, password } = req.body;
+    res.redirect("/");;
+}
+
 export const getLogout = (Req, res) => {
     res.send("Logout");
 }
