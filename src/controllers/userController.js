@@ -6,7 +6,7 @@ export const getJoin = (req, res) => {
 
 export const postJoin = async (req, res) => {
     const { username, password, password2, name } = req.body;
-    const pageTitle = "join";
+    const pageTitle = "Join";
     const exist = await User.exists({ username });
 
     if (exist) {
@@ -45,7 +45,8 @@ export const getLogin = (req, res) => {
 
 export const postLogin = (req, res) => {
     const { username, password } = req.body;
-    res.redirect("/");;
+    const pageTitle = "Login";
+    res.redirect("/");
 }
 
 export const getLogout = (Req, res) => {
