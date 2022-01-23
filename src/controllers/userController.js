@@ -1,7 +1,8 @@
 import User from "../models/User";
+import bcrypt from "bcrypt";
 
 export const getJoin = (req, res) => {
-    res.render("join")
+    res.render("join", { pageTitle: "Join" });
 }
 
 export const postJoin = async (req, res) => {
@@ -40,17 +41,37 @@ export const postJoin = async (req, res) => {
 }
 
 export const getLogin = (req, res) => {
-    res.render("login");
+    res.render("login", { pageTitle: "Login" });
 }
 
-export const postLogin = (req, res) => {
+export const postLogin = async (req, res) => {
     const { username, password } = req.body;
     const pageTitle = "Login";
-    res.redirect("/");
+    const user = await User.findOne({ username });
+    if (!user) {
+        return res.status(400).render("login", {
+            pageTitle,
+            errorMassage: "방금 입력하신 아이디는 존재하지 않습니다."
+        });
+    };
+
+    const ok = await bcrypt.compare(password, user.password);
+    if(!ok) {
+        return res.status(400).render("login", {
+            pageTitle,
+            errorMassage: "비밀번호가 일치하지 않습니다."
+        });
+    }
+
+    req.session.loggedIn = true;
+    req.session.user = user;
+
+    return res.redirect("/");
 }
 
-export const getLogout = (Req, res) => {
-    res.send("Logout");
+export const getLogout = (req, res) => {
+    req.session.destroy();
+    return res.redirect("/");
 }
 
 export const getSee = (req, res) => {

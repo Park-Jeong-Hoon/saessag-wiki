@@ -6,7 +6,11 @@ header
                 form(action="/search" method="GET")
                     input(type="text", name="keyword", placeholder="검색어를 입력하세요")
                     input(type="submit", value="검색")
-            li
-                a(href="/login") 로그인
-            li
-                a(href="/join") 회원가입
+            if loggedIn
+                li
+                    a(href="/users/logout") 로그아웃
+            else
+                li
+                    a(href="/login") 로그인
+                li
+                    a(href="/join") 회원가입
