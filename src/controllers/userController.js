@@ -69,13 +69,13 @@ export const postLogin = async (req, res) => {
     return res.redirect("/");
 }
 
-export const getLogout = (req, res) => {
+export const logout = (req, res) => {
     req.session.destroy();
     return res.redirect("/");
 }
 
 export const getSee = (req, res) => {
-    res.send("SeeUser");
+    res.render("profile", { pageTitle: "Profile" });
 }
 
 export const getEdit = (req, res) => {

@@ -9,6 +9,8 @@ header
             if loggedIn
                 li
                     a(href="/users/logout") 로그아웃
+                li
+                    a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username} 
             else
                 li
                     a(href="/login") 로그인
