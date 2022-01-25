@@ -79,7 +79,7 @@ export const getSee = (req, res) => {
 }
 
 export const getEdit = (req, res) => {
-    res.send("Edit");
+    res.render("edit-profile", { pageTitle: "Edit" });
 }
 
 export const getChangePasswd = (req, res) => {

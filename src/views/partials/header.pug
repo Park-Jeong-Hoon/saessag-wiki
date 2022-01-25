@@ -11,6 +11,8 @@ header
                     a(href="/users/logout") 로그아웃
                 li
                     a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username} 
+                li
+                    a(href="/users/edit") 회원정보수정 
             else
                 li
                     a(href="/login") 로그인
