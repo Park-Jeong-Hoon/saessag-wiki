@@ -74,7 +74,7 @@ export const logout = (req, res) => {
     return res.redirect("/");
 }
 
-export const getSee = (req, res) => {
+export const see = (req, res) => {
     res.render("profile", { pageTitle: "Profile" });
 }
 
@@ -82,6 +82,12 @@ export const getEdit = (req, res) => {
     res.render("edit-profile", { pageTitle: "Edit" });
 }
 
+export const postEdit = (req, res) => {
+    const { username, name } = req.body;
+    console.log(username, name);
+    res.redirect("/");
+}
+
 export const getChangePasswd = (req, res) => {
-    res.send("Change Passwd");
+    res.render("change-password");
 }

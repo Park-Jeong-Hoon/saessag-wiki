@@ -1,11 +1,11 @@
 import express from "express";
-import { getChangePasswd, getEdit, getSee, logout } from "../controllers/userController";
+import { getChangePasswd, getEdit, logout, postEdit, see } from "../controllers/userController";
 
 const userRouter = express.Router();
 
 userRouter.get("/logout", logout);
-userRouter.get("/edit", getEdit);
+userRouter.route("/edit").get(getEdit).post(postEdit);
 userRouter.get("/change-password", getChangePasswd);
-userRouter.get("/:id", getSee);
+userRouter.get("/:id", see);
 
 export default userRouter;
