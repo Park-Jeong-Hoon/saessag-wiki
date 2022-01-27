@@ -79,12 +79,33 @@ export const see = (req, res) => {
 }
 
 export const getEdit = (req, res) => {
-    res.render("edit-profile", { pageTitle: "Edit" });
+    res.render("edit-profile", { pageTitle: "Edit Profile" });
 }
 
-export const postEdit = (req, res) => {
-    const { username, name } = req.body;
-    console.log(username, name);
+export const postEdit = async (req, res) => {
+    const {
+        session: {
+            user: {
+                _id
+            }
+        },
+        body: {
+            username,
+            name
+        }
+    } = req;
+
+    await User.findByIdAndUpdate(_id, {
+        username,
+        name
+    });
+
+    req.session.user = {
+        ...req.session.user,
+        username,
+        name
+    };
+
     res.redirect("/");
 }
 
