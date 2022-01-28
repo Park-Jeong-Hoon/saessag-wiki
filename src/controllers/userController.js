@@ -112,3 +112,19 @@ export const postEdit = async (req, res) => {
 export const getChangePasswd = (req, res) => {
     res.render("change-password");
 }
+
+export const postChangePasswd = (req, res) => {
+    const {
+        body: {
+            oldPassword,
+            newPassword,
+            newPasswordConfirmation
+        }
+    } = req;
+
+    console.log(oldPassword);
+    console.log(newPassword);
+    console.log(newPasswordConfirmation);
+
+    return res.redirect("/");
+}
