@@ -10,7 +10,9 @@ header
                 li
                     a(href="/users/logout") 로그아웃
                 li
-                    a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username} 
+                    a(href=`/users/${loggedInUser._id}`) #{loggedInUser.username}
+                li
+                    a(href="/contents/upload") 단어 등록
                 li
                     a(href="/users/edit") 회원정보수정 
             else
