@@ -16,6 +16,15 @@ export const getUpload = (req, res) => {
     res.render("upload", {pageTitle: "upload"});
 }
 
+export const postUpload = (req, res) => {
+    const {
+        word, explanation
+    } = req.body;
+
+    console.log("단어, 설명", word, explanation);
+    return res.redirect("/");
+}
+
 export const getEdit = (req, res) => {
     res.send("Edit");
 }
