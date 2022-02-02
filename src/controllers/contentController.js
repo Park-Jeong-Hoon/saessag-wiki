@@ -2,13 +2,17 @@ import Content from "../models/Content";
 
 export const getHome = async (req, res) => {
     const contents = await Content.find({});
-    res.render("home", {pageTitle: "Home", contents});
+    res.render("home", { pageTitle: "Home", contents });
 }
 
-export const getSearch = (req, res) => {
+export const getSearch = async (req, res) => {
     const keyword = req.query.keyword;
-    console.log(keyword);
-    res.render("search", { pageTitle: `Searched ${keyword}`, keyword });
+    const contents = await Content.find({
+        word: {
+            $regex: new RegExp(`${keyword}`, "i")
+        }
+    });
+    res.render("home", { pageTitle: `Searched ${keyword}`, contents });
 }
 
 export const see = async (req, res) => {
@@ -21,7 +25,7 @@ export const see = async (req, res) => {
 }
 
 export const getUpload = (req, res) => {
-    res.render("upload", {pageTitle: "upload"});
+    res.render("upload", { pageTitle: "Upload" });
 }
 
 export const postUpload = async (req, res) => {
