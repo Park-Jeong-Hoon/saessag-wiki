@@ -4,3 +4,7 @@ block content
     div
         div 단어명: #{content.word}
         div 설명: #{content.explanation}
+    
+    if loggedIn
+        div
+            a(href=`/contents/${content.id}/edit`) 편집

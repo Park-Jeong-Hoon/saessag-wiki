@@ -47,8 +47,13 @@ export const postUpload = async (req, res) => {
     }
 }
 
-export const getEdit = (req, res) => {
-    res.send("Edit");
+export const getEdit = async (req, res) => {
+    const { id } = req.params;
+    const content = await Content.findById(id);
+    if (!content) {
+        res.status(404).render("404", { pageTitle: "해당 단어에 관한 내용이 없습니다." })
+    }
+    res.render("edit", { pageTitle: "Edit", content });
 }
 
 export const getDelete = (req, res) => {
