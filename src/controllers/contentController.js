@@ -56,6 +56,17 @@ export const getEdit = async (req, res) => {
     res.render("edit", { pageTitle: "Edit", content });
 }
 
+export const postEdit = async (req, res) => {
+    const {id} = req.params;
+    const {word, explanation} = req.body;
+    
+    await Content.findByIdAndUpdate(id, {
+        word,
+        explanation
+    })
+    res.redirect("/");
+}
+
 export const getDelete = (req, res) => {
     res.send("Delete");
 }
