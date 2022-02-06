@@ -1,4 +1,6 @@
+import req from "express/lib/request";
 import Content from "../models/Content";
+import User from "../models/User";
 
 export const getHome = async (req, res) => {
     const contents = await Content.find({});
@@ -30,14 +32,24 @@ export const getUpload = (req, res) => {
 
 export const postUpload = async (req, res) => {
     const {
-        word, explanation
-    } = req.body;
+        session: {
+            user: _id
+        },
+        body: {
+            word,
+            explanation
+        }
+    } = req;
 
     try {
         const newContent = await Content.create({
             word,
-            explanation
-        })
+            explanation,
+            owner: _id
+        });
+        const user = await User.findById(_id);
+        user.contents.push(newContent._id);
+        user.save();
         return res.redirect("/");
     } catch (error) {
         return res.status(400).render("upload", {
