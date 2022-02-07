@@ -74,8 +74,14 @@ export const logout = (req, res) => {
     return res.redirect("/");
 }
 
-export const see = (req, res) => {
-    res.render("profile", { pageTitle: "Profile" });
+export const see = async (req, res) => {
+    const { id } = req.params;
+    const user = await User.findById(id).populate("contents");
+    if (!user) {
+        return res.status(404).render("404", { pageTitle: "유저를 찾지 못했습니다." })
+    }
+
+    res.render("profile", { pageTitle: user.name, user });
 }
 
 export const getEdit = (req, res) => {
