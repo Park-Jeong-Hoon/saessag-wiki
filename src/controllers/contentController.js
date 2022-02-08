@@ -80,11 +80,26 @@ export const postEdit = async (req, res) => {
 }
 
 export const deleteContent = async (req, res) => {
+    const {
+        user: _id
+    } = req.session;
     const { id } = req.params;
     const content = await Content.findById(id);
+    const user = await User.findById(_id);
+
     if (!content) {
         res.status(404).render("404", { pageTitle: "해당 단어에 관한 내용이 없습니다." })
     }
+    const userContent = user.contents
+    console.log("유저컨텐츠",userContent);
+    for (let i = 0; i < userContent.length; i++) {
+        if (String(userContent[i]) === id) {
+            userContent.splice(i, 1);
+            console.log("인덱스", i);
+        }
+    }
+    console.log("유저컨텐츠",userContent);
+    await User.updateOne({ _id }, { contents: userContent });
     await Content.findByIdAndDelete(id);
     res.redirect("/");
 }
