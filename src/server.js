@@ -25,7 +25,7 @@ app.use(
 );
 
 app.use(localMiddleware);
-
+app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/contents", contentRouter);
 app.use("/users", userRouter);
