@@ -5,3 +5,9 @@ body {
     background-color:azure;
     color: $lightseagreen;
 }
+
+footer {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
