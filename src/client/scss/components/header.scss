@@ -1,0 +1,17 @@
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .home {
+        width: 10%;
+    }
+    nav {
+        width: 90%;
+        ul {
+            width: inherit;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

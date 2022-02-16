@@ -1,6 +1,8 @@
 @import "./config/_variables.scss";
 @import "./config/_reset.scss";
 
+@import "./components/header.scss";
+
 body {
     background-color:azure;
     color: $lightseagreen;
