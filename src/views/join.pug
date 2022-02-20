@@ -3,7 +3,8 @@ extends base
 block content
     if errorMassage
         span=errorMassage
-    form(method="POST")
+    form.form(method="POST")
+        span 회원가입
         input(type="text", name="username", placeholder="아이디", required)
         input(type="password", name="password", placeholder="비밀번호", required)
         input(type="password", name="password2", placeholder="비밀번호 확인", required)

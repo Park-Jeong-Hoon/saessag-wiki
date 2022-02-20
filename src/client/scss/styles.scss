@@ -2,6 +2,7 @@
 @import "./config/_reset.scss";
 
 @import "./components/header.scss";
+@import "./components/forms.scss";
 
 body {
     background-color:azure;
@@ -12,5 +13,6 @@ body {
 footer {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, 0%);
+    top: 100%;
+    transform: translate(-50%, -50%);
 }
