@@ -16,7 +16,7 @@ header {
     }
     
     nav {
-        width: 350px;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -24,10 +24,18 @@ header {
         ul {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             list-style: none;
 
+            li {
+                margin-right: 15px;
+            }
+
+            li:last-child {
+                margin-right: 0px;
+            }
+            
             .search {
                 width: 180px;
 
