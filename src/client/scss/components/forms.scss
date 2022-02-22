@@ -20,11 +20,14 @@
         font-weight: bold;
     }
 
-    input {
-        height: 40px;
+    input, textarea {
         border-radius: 5px;
         border: 1px solid $azure;
         margin-bottom: 10px;
+    }
+
+    input {
+        height: 40px;
     }
 
     input[type=submit] {

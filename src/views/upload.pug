@@ -1,7 +1,7 @@
 extends base
 
 block content
-    form(method="POST")
+    form.form(method="POST")
         input(type="text", name="word", placeholder="단어", required)
         textarea(name="explanation", cols="30", rows="10", placeholder="설명", required)
         input(type="submit" value="업로드")
