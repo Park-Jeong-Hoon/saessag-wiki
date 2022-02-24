@@ -4,10 +4,12 @@
 @import "./components/header.scss";
 @import "./components/forms.scss";
 
+@import "./screens/home.scss";
+
 body {
     background-color:azure;
     color: $lightseagreen;
-    padding: 10px;
+    padding: 20px;
 }
 
 footer {
