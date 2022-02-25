@@ -4,5 +4,6 @@ include mixins/content
 block content
     div.home
         div.home_title 전체 단어 목록
-        each item in contents
-            +content(item)
+        div.word_list
+            each item in contents
+                +content(item)
