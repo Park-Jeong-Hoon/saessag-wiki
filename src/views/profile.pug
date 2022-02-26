@@ -2,7 +2,8 @@ extends base
 include mixins/content
 
 block content
-    div=loggedInUser.username
-    div
-        each item in user.contents
-            +content(item)
+    div.profile
+        div.owner #{loggedInUser.username}님의 콘텐츠
+        div.owner_list
+            each item in user.contents
+                +content(item)
