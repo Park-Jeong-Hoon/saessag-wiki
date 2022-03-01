@@ -2,11 +2,12 @@ extend base
 
 block content
     div.content_layout
-        div.word_name 단어명: #{content.word}
-        div.explanation 설명: #{content.explanation}
-    
-        if loggedIn
-            span.edit_delete
-                a(href=`/contents/${content.id}/edit`) 편집
-                span  | 
-                a(href=`/contents/${content.id}/delete`) 삭제
+        div.content_container
+            div.word_name 단어명: #{content.word}
+            div.explanation 설명: #{content.explanation}
+        
+            if loggedIn
+                span.edit_delete
+                    a(href=`/contents/${content.id}/edit`) 편집
+                    span |
+                    a(href=`/contents/${content.id}/delete`) 삭제

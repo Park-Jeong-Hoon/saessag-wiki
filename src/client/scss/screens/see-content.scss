@@ -2,18 +2,47 @@
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .word_name {
-        font-size: 20px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
+    .content_container {
 
-    .explanation {
-        font-size: 18px;
-        margin-bottom: 20px;
+        width: 400px;
+        background-color: $white;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        div {
+            margin-top: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 20px;
+            height: auto;
+            border-bottom: 1px solid;
+        }
+
+        .word_name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    
+        .explanation {
+            font-size: 18px;
+        }
+        
+        .edit_delete {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a, span {
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
     }
 }
